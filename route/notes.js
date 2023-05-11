@@ -16,7 +16,7 @@ const writeToFile = async (destination, content) => {
 };
 
 // Function to read from db.json file
-const readFromFile = async (file) => {
+async function readFromFile(file) {
   try {
     const data = await fs.readFile(file, "utf8");
     return JSON.parse(data);
@@ -24,7 +24,7 @@ const readFromFile = async (file) => {
     console.error(err);
     return [];
   }
-};
+}
 
 // GET route for retrieving all the notes from db.json file
 notes.get("/notes", async (req, res) => {
